@@ -1,0 +1,39 @@
+
+version: '3.3'
+
+services:
+
+  nginx:
+    container_name: nginx
+    image: nginx:1.13.5-alpine
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - php
+    volumes:
+      - ./services/nginx/config/conf.d:/etc/nginx/conf.d
+      - ./volumes/log/nginx:/var/log/nginx
+      - ./volumes/application/http:/http
+
+  php:
+    container_name: php
+    build:
+      context: ./services/php
+    volumes:
+      - ./services/php/config:/usr/local/etc
+      - ./volumes/log/php:/var/log/php
+      - ./volumes/application/http:/http
+
+  mysql:
+    container_name: mysql
+    image: mysql:5.7.19
+    volumes:
+      - ./services/mysql/config:/etc/mysql
+      - ./volumes/log/mysql:/var/log/mysql
+      - ./volumes/data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: example
+      MYSQL_PASSWORD: example
+      MYSQL_DATABASE: example
