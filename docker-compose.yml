@@ -20,6 +20,8 @@ services:
     container_name: php
     build:
       context: ./services/php
+    links:
+      - mysql
     volumes:
       - ./services/php/config:/usr/local/etc
       - ./volumes/log/php:/var/log/php
