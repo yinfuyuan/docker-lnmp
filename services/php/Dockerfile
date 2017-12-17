@@ -2,7 +2,7 @@ FROM php:7.2.0-fpm-alpine3.7
 
 MAINTAINER yinfuyuan <yinfuyuan@gmail.com>
 
-WORKDIR /com/historing
+WORKDIR /http
 
 RUN docker-php-ext-install pdo_mysql
 
