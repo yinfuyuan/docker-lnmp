@@ -10,7 +10,7 @@ You can run this software on linux or windows or mac, recommending use of x86_64
 
 If you run on a mac, please reference https://docs.docker.com/docker-for-mac/osxfs/#namespaces share you mount directory.
 
- really want your feedback when you have Iproblems encountered during use.
+I really want your feedback when you have problems encountered during use.
 
 ## Dependencies
 
