@@ -20,6 +20,7 @@ services:
     container_name: php
     build:
       context: ./services/php
+    image: yinfuyuan/php:7.2.0-fpm-alpine
     links:
       - mysql
     volumes:
